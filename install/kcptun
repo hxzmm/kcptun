@@ -40,15 +40,15 @@ BASE=$(basename $0)
 
 # modify these in /etc/sysconfig/$BASE (/etc/sysconfig/kcptun)
 KCPTUN=/root/kcptun/server_linux_amd64
-
+KCPTUN_CONF=/root/kcptun/kcptun.conf
 KCPTUN_PIDFILE=/var/run/$BASE.pid
 KCPTUN_LOGFILE=/var/log/$BASE.log
 KCPTUN_LOCKFILE=/var/lock/subsys/$BASE
 KCPTUN_OPTS="-t 127.0.0.1:8833 -l :8855 --key key --crypt aes-128 --sndwnd 1024 --rcvwnd 1024 --nocomp --mode fast2"
 KCPTUN_DESC="KCPTUN"
 
-if [ -f /etc/sysconfig/$BASE ]; then
-    . /etc/sysconfig/$BASE
+if [ -f $KCPTUN_CONF ]; then
+    . $KCPTUN_CONF
 fi
 
 # Check kcptun server is present
