@@ -80,7 +80,6 @@ start() {
     RETVAL=$?
 
     if [ "$RETVAL" = "0" ]; then
-        success
         sleep 2
         ps -A o pid,cmd | grep "$KCPTUN --log ${KCPTUN_LOGFILE} $KCPTUN_OPTS" | awk '{print $1}' | head -n 1 > ${KCPTUN_PIDFILE}
     else
