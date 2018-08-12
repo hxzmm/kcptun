@@ -110,8 +110,7 @@ case "$1" in
         stop
         ;;
   status)
-        status -p ${KCPTUN_PIDFILE} $KCPTUN
-        RETVAL=$?
+        status
         ;;
   restart)
         stop
@@ -119,7 +118,7 @@ case "$1" in
         ;;
   *)
         echo $"Usage: $BASE { start | stop | restart | status }"
-        RETVAL=2
+        RETVAL=1
         ;;
 esac
 
