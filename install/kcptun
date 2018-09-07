@@ -16,10 +16,8 @@
 # Provides: KCPTun
 # Required-Start: $network $syslog $local_fs $remote_fs $named
 # Required-Stop: $network $local_fs $remote_fs
-# Should-Start:
-# Should-Stop:
-# Default-Start:
-# Default-Stop:
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
 # Short-Description: Start and stop KCPTun Server
 # Description: The KCPTun is a secure tunnel based On KCP with N:M Multiplexing.
 ### END INIT INFO
