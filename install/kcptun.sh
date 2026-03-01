@@ -9,5 +9,9 @@ cd kcptun
 wget https://github.com/xtaci/kcptun/releases/download/v${NEW_VER}/kcptun-linux-amd64-${NEW_VER}.tar.gz
 tar xfvz kcptun-linux-amd64-${NEW_VER}.tar.gz
 wget https://raw.githubusercontent.com/hxzmm/kcptun/master/install/kcptun.conf
-wget -O /etc/init.d/kcptun https://raw.githubusercontent.com/hxzmm/kcptun/master/install/kcptun
-chmod 755 /etc/init.d/kcptun; update-rc.d kcptun defaults; service kcptun start
+wget -O /etc/systemd/system/kcptun.service https://raw.githubusercontent.com/hxzmm/kcptun/master/install/kcptun
+chmod 644 /etc/systemd/system/kcptun.service
+systemctl daemon-reload
+systemctl enable kcptun
+systemctl restart kcptun
+systemctl status kcptun
